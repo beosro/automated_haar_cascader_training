@@ -6,6 +6,11 @@ is_recording = False
 time_last_img_saved = time.time()
 is_running = True
 target_dir = 'testimages'
+
+if not os.path.exists(target_dir):
+	os.makedirs(target_dir)
+
+
 cap = cv2.VideoCapture(1)
 
 def save_images(img):
