@@ -50,7 +50,7 @@ def reset():
 	img = clone.copy()
 
 def create_list(dir_name):
-	txt_file = open( dir_name + '_data.txt' , 'b')
+	txt_file = open( dir_name + '_data.txt' , 'w')
 	for file in os.listdir(target_dir):
 		if file.endswith('.jpg'):
 			txt_file.write(dir_name + '/' + file + '\n')
