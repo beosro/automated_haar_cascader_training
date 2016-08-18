@@ -11,7 +11,7 @@ if not os.path.exists(target_dir):
 	os.makedirs(target_dir)
 
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 
 def save_images(img):
 	global time_last_img_saved

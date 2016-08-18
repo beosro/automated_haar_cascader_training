@@ -49,6 +49,13 @@ def reset():
 	roi = clone.copy()
 	img = clone.copy()
 
+def create_list(dir_name):
+	txt_file = open( dir_name + '_data.txt' , 'b')
+	for file in os.listdir(target_dir):
+		if file.endswith('.jpg'):
+			txt_file.write(dir_name + '/' + file + '\n')
+	txt_file.close()
+
 for file in os.listdir(target_dir):
 	if file.endswith('.jpg'):
 		current_img = target_dir + '/' + file
@@ -83,3 +90,6 @@ for file in os.listdir(target_dir):
 
 # close all open windows
 cv2.destroyAllWindows()
+
+create_list(pro_sample_dir)
+create_list(neg_sample_dir)
