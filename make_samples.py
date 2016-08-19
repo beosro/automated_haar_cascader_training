@@ -77,40 +77,40 @@ def resize_imgs_in_dir(dir_name):
 			print dir_name + '/' + file + ' resized to ' + str(target_resolution)
 
 
-# for file in os.listdir(target_dir):
-# 	if file.endswith('.jpg'):
-# 		current_img = target_dir + '/' + file
-# 		img = cv2.imread(current_img,0)
-# 		clone = copy.copy(img)
-# 		cv2.namedWindow(current_img)
-# 		cv2.setMouseCallback(current_img, click_and_crop)
-# 		reset()
-# 		while True:
-# 			cv2.putText(img,"r reset, c continue, a ok", (10,25), cv2.FONT_HERSHEY_SIMPLEX, 1, 255)
-# 			cv2.imshow(current_img, img)
-# 			key = cv2.waitKey(1) & 0xFF
-#
-# 			if key == ord("r"):
-# 				reset()
-# 			elif key == ord("a"):
-# 				break
-#
-# 		if roi.size < img.size:
-# 			sample_dir = pro_sample_dir
-# 			img_to_save = roi
-# 		else:
-# 			sample_dir = neg_sample_dir
-# 			img_to_save = clone
-#
-# 		if not os.path.exists(sample_dir):
-# 			os.makedirs(sample_dir)
-#
-# 		cv2.imwrite(sample_dir + '/' + str(len(os.listdir(sample_dir)) + 1) + '.jpg', img_to_save)
-# 		cv2.destroyAllWindows()
-# 		reset()
-#
-# # close all open windows
-# cv2.destroyAllWindows()
+for file in os.listdir(target_dir):
+	if file.endswith('.jpg'):
+		current_img = target_dir + '/' + file
+		img = cv2.imread(current_img,0)
+		clone = copy.copy(img)
+		cv2.namedWindow(current_img)
+		cv2.setMouseCallback(current_img, click_and_crop)
+		reset()
+		while True:
+			cv2.putText(img,"r reset, c continue, a ok", (10,25), cv2.FONT_HERSHEY_SIMPLEX, 1, 255)
+			cv2.imshow(current_img, img)
+			key = cv2.waitKey(1) & 0xFF
+
+			if key == ord("r"):
+				reset()
+			elif key == ord("a"):
+				break
+
+		if roi.size < img.size:
+			sample_dir = pro_sample_dir
+			img_to_save = roi
+		else:
+			sample_dir = neg_sample_dir
+			img_to_save = clone
+
+		if not os.path.exists(sample_dir):
+			os.makedirs(sample_dir)
+
+		cv2.imwrite(sample_dir + '/' + str(len(os.listdir(sample_dir)) + 1) + '.jpg', img_to_save)
+		cv2.destroyAllWindows()
+		reset()
+
+# close all open windows
+cv2.destroyAllWindows()
 
 print 'creating lists'
 create_list(pro_sample_dir)
