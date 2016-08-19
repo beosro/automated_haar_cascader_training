@@ -112,10 +112,11 @@ for file in os.listdir(target_dir):
 # close all open windows
 cv2.destroyAllWindows()
 
-print 'creating lists'
-create_list(pro_sample_dir)
-create_list(neg_sample_dir)
 
 print 'resizing images'
 resize_imgs_in_dir(pro_sample_dir)
 resize_imgs_in_dir(neg_sample_dir)
+
+print 'creating lists'
+create_list(pro_sample_dir)
+create_list(neg_sample_dir)
