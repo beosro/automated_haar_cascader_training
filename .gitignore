@@ -1,5 +1,7 @@
 testimages/
 pos/
 neg/
+pos_bckp/
+neg_bckp/
 neg_*
 pos_*
